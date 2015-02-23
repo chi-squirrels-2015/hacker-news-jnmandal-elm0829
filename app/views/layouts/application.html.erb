@@ -7,13 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="auth-forms">
-    <%= "Hello #{current_user.name}" if current_user %>
-    <!-- is this the right thing to do here? -->
-    <%= link_to("Sign up", "/signup") unless current_user %>
-    <%= link_to("Log in", "/login") unless current_user %>
-    <%= link_to("Log out", "/logout") if current_user %>
+  <div id="nav">
+    <h1>YooNews</h1>
+      <div id="userlogin">
+        <%= "Hello #{current_user.name}" if current_user %>
+        <!-- is this the right thing to do here? -->
+        <%= link_to("Sign up", "/signup") unless current_user %>
+        <%= link_to("Log in", "/login") unless current_user %>
+        <%= link_to("Log out", "/logout") if current_user %>
+      </div>
   </div>
+
 <%= yield %>
 
 </body>

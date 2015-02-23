@@ -1,1 +1,15 @@
-<%=  %>
+
+<div class="post_container">
+  <% @posts.each_with_index do |post, i|  %>
+    <div class="post">
+      <span class="rank"><%= i+1 %></span>
+      <span class="arrow"><%= link_to image_tag('grayarrow.gif'), new_vote_path %></span>
+      <span class="title"><%= link_to(post.title, post.link) %></span>
+      <span class="link">(<%= link_to(post.link, post.link) %>)</span><br>
+      <span class="points"><%= post.vote_count %></span> by
+      <span class="user"><%= post.user.name %></span>
+      <span class="date"><%= (post.created_at.hour - Time.now.hour) %>hour ago</span>
+      <span class="comments">| <%= post.comments.size %> comments</span>
+    </div>
+  <% end %>
+</div>
